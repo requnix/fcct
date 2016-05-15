@@ -10,11 +10,16 @@ class Ability
     can :update, Member if member.holds_position? 'Membership Officer'
 
     committee_permissions if member.committee?
+    member_permissions(member) if member.persisted?
     guest_permissions
   end
 
   def committee_permissions
     can :read, ActiveAdmin::Page, name: 'Dashboard'
+  end
+
+  def member_permissions(member)
+    can :update, Member, id: member.id
   end
 
   def guest_permissions

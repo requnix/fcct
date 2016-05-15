@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 protected
 
   def access_denied(exception)
-    redirect_to root_path, alert: exception.message
+    redirect_to home_path, alert: exception.message
   end
 
   def authenticate_committee!
