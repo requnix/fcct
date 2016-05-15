@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if content_for? :title_bar %>
+        <%= yield :title_bar %> -
+      <% end %>
+      Free Chapter Cape Town
+    </title>
+
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/header' %>
+
+    <div class="contents">
+      <% flash.each do |_, message| %>
+        <div class="row notice">
+          <div class="section">
+            <%= close_icon %>
+            <%= message %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <%= render partial: 'layouts/footer' %>
+  </body>
+</html>

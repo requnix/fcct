@@ -1,0 +1,8 @@
+Style/Documentation:
+  Enabled: false
+Style/AccessModifierIndentation:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.2

@@ -1,0 +1,16 @@
+<div class="row hero">
+  <div class="section">
+    <h1>Upcoming Events</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="section">
+    <dl>
+      <% @events.upcoming.each do |event| %>
+        <dt><%= event.occurs_on.strftime '%-d %B' %></dt>
+        <dd><%= event.title %></dd>
+      <% end %>
+    </dl>
+  </div>
+</div>

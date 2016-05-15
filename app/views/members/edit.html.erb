@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="section">
+    <h2>Update Your Profile</h2>
+
+    <%= form_for @member, html: { method: :put } do |f| %>
+      <p class="field">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, class: 'full', autofocus: true %>
+      </p>
+
+      <p class="field">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, class: 'full', autofocus: true %>
+      </p>
+
+      <p class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'full', autofocus: true %>
+      </p>
+
+      <p class="field">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: 'off', class: 'full' %>
+      </p>
+
+      <p class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'full' %>
+      </p>
+
+      <div class="actions">
+        <%= f.submit 'Update', class: 'orange btn full' %><hr />
+        <%= link_to 'Back', :back, class: 'btn full' %>
+      </div>
+    <% end %>
+
+
+  </div>
+</div>

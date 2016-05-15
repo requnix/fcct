@@ -1,0 +1,43 @@
+@import 'vital';
+@import 'font-awesome';
+@import 'font-awesome-animation';
+
+@import 'mixins/transition';
+
+// Vital icon overrides
+#menu-toggle:before {
+  font-family: FontAwesome;
+  content: "\f0c9";
+}
+input[type='checkbox']:checked:before {
+  font-family: FontAwesome;
+  content: "\f00c";
+}
+
+// Navigation
+ul.menu {
+  li.current {
+    background-color: #F5F5F5;
+  }
+}
+
+// Header
+#login, #current_member {
+  float: right;
+}
+
+// Notice
+.notice {
+  i.fa.action {
+    cursor: pointer;
+    line-height: 1.91;
+    position: absolute;
+    right: 0.5em;
+    top: 0.4em;
+  }
+}
+
+// Footer
+.footer p:nth-child(n+4) {
+  font-size: 0.8em;
+}

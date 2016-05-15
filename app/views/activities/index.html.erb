@@ -1,0 +1,26 @@
+<div class="row hero">
+  <div class="section">
+    <h1>Activities</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="section">
+    <% @events.each do |event| %>
+      <div class="event">
+        <h3><%= event.title %></h3>
+        <h4><%= event.timeframe %></h4>
+        <% if event.writeup.present? %>
+          <div class="writeup">
+            <blockquote>
+              <%= raw markdown.render event.writeup %>
+              <% if event.writeup_author %>
+                <footer>– <%= event.writeup_author.full_name %></footer>
+              <% end %>
+            </blockquote>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

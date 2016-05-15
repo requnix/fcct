@@ -1,0 +1,36 @@
+<div class="row header">
+  <div class="section">
+    <nav>
+      <a class="logo" href="/"><%= fa_icon 'motorcycle 3x' %></a>
+      <label id="menu-toggle-label" for="menu-toggle"></label>
+      <input id="menu-toggle" type="checkbox" />
+
+      <ul class="menu">
+        <%= render 'layouts/menu_item', text: 'Activities', path: activities_path, icon: 'picture-o' %>
+        <%= render 'layouts/menu_item', text: 'Calendar', path: calendars_path, icon: 'calendar' %>
+        <%= render 'layouts/menu_item', text: 'Members', path: members_path, icon: 'users' %>
+
+        <% if member_signed_in? %>
+          <li id="current_member">
+            <%= link_to edit_member_path(current_member) do %>
+              <%= fa_icon 'user' %>
+              <%= current_member.full_name %>
+            <% end %>
+            <ul>
+              <li id="logout">
+                <%= link_to destroy_member_session_path, method: :delete, rel: 'nofollow' do %>
+                  <%= fa_icon 'sign-out' %> Log out
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <%= render 'layouts/menu_item', text: 'Admin', path: admin_dashboard_path, icon: 'lock' if current_member.committee? %>
+        <% else %>
+          <li id="login">
+            <%= link_to 'Member Login', new_member_session_path, rel: 'nofollow' %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

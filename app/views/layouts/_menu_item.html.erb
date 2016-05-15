@@ -1,0 +1,6 @@
+<li class='<%= 'current' if path == request.fullpath %>'>
+  <%= link_to path, title: text do %>
+    <%= fa_icon(icon) if icon %>
+    <%= text %>
+  <% end %>
+</li>
